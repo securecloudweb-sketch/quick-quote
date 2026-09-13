@@ -9,14 +9,15 @@
  */
 
 export const pricingRules = {
-  currency: "NGN",
+  currency: "USD",
+  locale: "en-US",
 
   motor: {
     coverageRates: {
       comprehensive: 0.03, // ~3% of vehicle value
       thirdParty: 0, // fixed premium instead
     },
-    thirdPartyFixedPremium: 15_000,
+    thirdPartyFixedPremium: 120,
     vehicleTypeFactor: {
       saloon: 1,
       suv: 1.15,
@@ -34,15 +35,15 @@ export const pricingRules = {
       ],
     },
     addOns: {
-      theft: { label: "Theft protection", amount: 12_000 },
-      flood: { label: "Flood protection", amount: 9_000 },
-      windscreen: { label: "Windscreen protection", amount: 6_500 },
-      accident: { label: "Personal accident cover", amount: 8_000 },
+      theft: { label: "Theft protection", amount: 85 },
+      flood: { label: "Flood protection", amount: 60 },
+      windscreen: { label: "Windscreen protection", amount: 45 },
+      accident: { label: "Personal accident cover", amount: 55 },
     },
   },
 
   life: {
-    // annual rate per ₦1 of cover, by age bracket
+    // annual rate per $1 of cover, by age bracket
     ageRateBrackets: [
       { maxAge: 29, rate: 0.0022 },
       { maxAge: 39, rate: 0.0031 },
@@ -56,7 +57,7 @@ export const pricingRules = {
 
   health: {
     // annual premium per person, by coverage level
-    levelBase: { basic: 45_000, standard: 95_000, premium: 180_000 },
+    levelBase: { basic: 420, standard: 880, premium: 1_650 },
     ageLoadingBrackets: [
       { maxAge: 17, factor: 0.8 },
       { maxAge: 39, factor: 1 },
@@ -75,10 +76,9 @@ export const pricingRules = {
       commercial: 1.3,
     },
     locationFactor: {
-      lagos: 1.15,
-      abuja: 1.1,
-      portHarcourt: 1.12,
-      otherUrban: 1,
+      coastal: 1.15,
+      metro: 1.1,
+      suburban: 1,
       rural: 0.92,
     },
   },
@@ -86,10 +86,10 @@ export const pricingRules = {
   travel: {
     // base premium per traveller for a trip of up to 7 days
     destinationBase: {
-      nigeria: 6_000,
-      africa: 14_000,
-      europe: 32_000,
-      worldwide: 48_000,
+      domestic: 18,
+      regional: 45,
+      europe: 85,
+      worldwide: 130,
     },
     durationFactorPerWeek: 0.55, // each extra week adds 55% of the base
     ageLoadingBrackets: [
