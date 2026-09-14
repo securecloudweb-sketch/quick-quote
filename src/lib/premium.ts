@@ -40,7 +40,7 @@ const list = (data: FormData, key: string) =>
 const bracketFactor = (
   brackets: readonly { maxAge: number; factor: number }[],
   age: number,
-) => brackets.find((b) => age <= b.maxAge)?.factor ?? brackets[brackets.length - 1].factor;
+) => brackets.find((b) => age <= b.maxAge)?.factor ?? brackets.at(-1)?.factor ?? 1;
 
 const round = (n: number) => Math.round(n);
 
